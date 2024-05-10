@@ -15,7 +15,7 @@ require (
 	github.com/mattn/go-sqlite3 v1.14.22
 	github.com/mdp/qrterminal v1.0.1
 	github.com/nicksnyder/go-i18n/v2 v2.4.0
-	github.com/prometheus/client_golang v1.19.0
+	github.com/prometheus/client_golang v1.19.1
 	github.com/stretchr/testify v1.9.0
 	github.com/xanzy/go-gitlab v0.100.0
 	gitlab.torproject.org/tpo/anti-censorship/geoip v0.0.0-20210928150955-7ce4b3d98d01
