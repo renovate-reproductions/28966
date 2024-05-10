@@ -1,5 +1,6 @@
 The current behavior is renovate is unable to install golang, resulting in these errors:
 
+```
  WARN: artifactErrors (repository=tpo/anti-censorship/rdsys, branch=renovate/github.com-xanzy-go-gitlab-0.x)
        "artifactErrors": [
          {
@@ -7,9 +8,11 @@ The current behavior is renovate is unable to install golang, resulting in these
            "stderr": "Command failed: install-tool golang 1.21.9\n"
          }
        ]
+```
 
 The debug logs are:
 
+```
 DEBUG: rawExec err (repository=tpo/anti-censorship/rdsys, branch=renovate/github.com-prometheus-client_golang-1.x)
        "err": {
          "cmd": "/bin/sh -c install-tool golang 1.21.10",
@@ -90,6 +93,10 @@ DEBUG: Failed to update go.sum (repository=tpo/anti-censorship/rdsys, branch=ren
          "stack": "ExecError: Command failed: install-tool golang 1.21.10\n\n    at ChildProcess.<anonymous> (/usr/local/renovate/lib/util/exec/common.ts:99:11)\n    at ChildProcess.emit (node:events:529:35)\n    at ChildProcess.emit (node:domain:489:12)\n    at Process.ChildProcess._handle.onexit (node:internal/child_process:292:12)"
        }
 
+```
+
+If I use the container that renovate is using and try to do the install command:
+```
 $podman run -it -v /home/micah/dev/tor/rdsys:/tmp/rdsys ghcr.io/renovatebot/renovate:37.353.0@sha256:1e9801c491fa802867b7307d0675e343e3d32fd9bcc13321a91836311e289710 /bin/bash
 ubuntu@191831612c3b:/usr/src/app$ cd /tmp/rdsys/
 ubuntu@191831612c3b:/tmp/rdsys$ GOPATH=/go
@@ -133,17 +140,21 @@ go: download go1.22.2: golang.org/toolchain@v0.0.1-go1.22.2.linux-amd64: verifyi
     }
 [21:04:00.059] INFO (6): Installed tool golang with errors in 19s.
 ubuntu@191831612c3b:/tmp/rdsys$ 
+```
 
 Notice that I'm installing v1.21.10, and it seems to do so, but then for some reason, it is proceeding to install v1.22.2, and that is where it is failing:
 
+```
 linking tool golang v1.21.10
 go: downloading go1.22.2 (linux/amd64)
 go: download go1.22.2: golang.org/toolchain@v0.0.1-go1.22.2.linux-amd64: verifying module: checksum database disabled by GOSUMDB=off
+```
 
 I don't know why it decides to install a different version after the first.
 
 If I do the same thing, but I do not set GOSUBDB=off, then it compiles, without problems:
 
+```
 $ podman run -it -v /home/micah/dev/tor/rdsys:/tmp/rdsys ghcr.io/renovatebot/renovate:37.353.0@sha256:1e9801c491fa802867b7307d0675e343e3d32fd9bcc13321a91836311e289710 /bin/bash
 ubuntu@a6bc5573bbf3:/usr/src/app$ 
 ubuntu@a6bc5573bbf3:/usr/src/app$ 
@@ -199,3 +210,4 @@ CGO_LDFLAGS='-O2 -g'
 PKG_CONFIG='pkg-config'
 GOGCCFLAGS='-fPIC -m64 -Wl,--no-gc-sections -fmessage-length=0 -ffile-prefix-map=/tmp/go-build2094397949=/tmp/go-build -gno-record-gcc-switches'
 [21:20:01.326] INFO (6): Installed tool golang in 7.5s.
+````
