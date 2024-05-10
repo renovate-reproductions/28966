@@ -7,7 +7,7 @@ toolchain go1.22.2
 require (
 	github.com/NullHypothesis/zoossh v0.0.0-20230915131605-0156201467e2
 	github.com/aws/aws-sdk-go-v2 v1.26.1
-	github.com/aws/aws-sdk-go-v2/service/s3 v1.53.1
+	github.com/aws/aws-sdk-go-v2/service/s3 v1.53.2
 	github.com/emersion/go-imap v1.2.1
 	github.com/emersion/go-sasl v0.0.0-20211008083017-0b9dcfb154ac // indirect
 	github.com/google/go-github/v61 v61.0.0
