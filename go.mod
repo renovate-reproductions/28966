@@ -2,7 +2,7 @@ module gitlab.torproject.org/tpo/anti-censorship/rdsys
 
 go 1.21
 
-toolchain go1.22.2
+toolchain go1.22.3
 
 require (
 	github.com/NullHypothesis/zoossh v0.0.0-20230915131605-0156201467e2
