@@ -1,0 +1,34 @@
+<div class="container pt-5 justify-content-center">
+    <section>
+        <div class="container py-3 preamble">
+            <p>
+                {{ translated "BridgeDb can provide bridges with several types of Pluggable Transports, which can help obfuscate your connections to the Tor Network, making it more difficult for anyone watching your internet traffic to determine that you are using Tor." }}
+            </p>
+        </div>
+    </section>
+</div>
+
+{{define "render_step"}}
+<div class="col-lg-4 col-md-6 col-sm-12 py-4">
+    <div class="card h-100 p-2">
+        <div class="card-body">
+            <h2 class="card-title ">{{ .Input.stepName }}</h2>
+            <p class="card-text">{{ .Input.title }}</p>
+            <img src="{{ printf "/static/images/%v.svg" .Input.iconName | asseturl }}">
+        </div>
+        <a href="{{ .Input.link }}" class="btn btn-primary">{{ .Input.title }}</a>
+    </div>
+</div>
+{{end}}
+
+<div class="row">
+    <!-- capture translation {{translated "Step 1"}} {{translated "Download Tor Browser"}} -->
+    {{ template "render_step" (constructMapContext "stepName" (translated "Step 1") "title" (translated "Download Tor Browser") "link"
+    "https://www.torproject.org/projects/torbrowser.html" "iconName" "bridges-download") }}
+    <!-- capture translation {{translated "Step 2"}} {{translated "Get Bridges"}} -->
+    {{ template "render_step" (constructMapContext "stepName" (translated "Step 2") "title" (translated "Get Bridges") "link"
+    ("/options"|url) "iconName" "bridges-get")}}
+    <!-- capture translation {{translated "Step 3"}} {{translated "Add the Bridges"}} -->
+    {{ template "render_step" (constructMapContext "stepName" (translated "Step 3") "title" (translated "Add the Bridges") "link"
+    ("https://tb-manual.torproject.org/bridges/"|url) "iconName" "bridges-add")}}
+</div>

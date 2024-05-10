@@ -1,0 +1,20 @@
+{{ range . }}extra-info {{.Nick}} {{.Fingerprint}}
+identity-ed25519
+-----BEGIN ED25519 CERT-----
+AAAA
+-----END ED25519 CERT-----
+published 2023-08-09 12:00:00
+transport {{.Transport}} {{.Address}}:{{.PTPort}} {{.Args}}
+write-history 2023-08-09 12:00:00 (86400 s) 0,0,100000000,0,1000000000
+read-history 2023-08-09 12:00:00 (86400 s) 0,0,100000000,0,1000000000
+dirreq-write-history 2023-08-09 12:00:00 (86400 s) 0,0,1000000,0,6000000
+dirreq-read-history 2023-08-09 12:00:00 (86400 s) 0,0,0,0,0
+geoip-db-digest D48EC82E3F03A0C929B6D85FBA12D538524AC9B1
+geoip6-db-digest BB4E522D86A3C1FB6E820A69F4AA16DAC953B05B
+padding-counts 2023-08-09 12:00:00 (86400 s) bin-size=10000 write-drop=0 write-pad=0 write-total=10000 read-drop=0 read-pad=0 read-total=10000 enabled-read-pad=0 enabled-read-total=10000 enabled-write-pad=0 enabled-write-total=10000 max-chanpad-timers=0
+router-sig-ed25519 GGGG
+router-signature
+-----BEGIN SIGNATURE-----
+HHHH
+-----END SIGNATURE-----
+{{ end -}}

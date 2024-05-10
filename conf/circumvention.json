@@ -1,0 +1,34 @@
+{
+    "by": {
+        "settings": [
+            {"bridges": {"type": "obfs4",     "source": "builtin"}},
+            {"bridges": {"type": "vanilla",   "source": "bridgedb"}},
+            {"bridges": {"type": "obfs4",     "source": "bridgedb"}},
+            {"bridges": {"type": "snowflake", "source": "builtin"}}
+        ]
+    },
+    "cn": {
+        "settings": [
+            {"bridges": {"type": "snowflake", "source": "builtin"}},
+            {"bridges": {"type": "obfs4", "source": "bridgedb"}}
+        ]
+    },
+    "ir": {
+        "settings": [
+            {"bridges": {"type": "snowflake", "source": "builtin"}},
+            {"bridges": {"type": "obfs4",     "source": "bridgedb"}}
+        ]
+    },
+    "ru": {
+        "settings": [
+            {"bridges": {"type": "obfs4",     "source": "bridgedb"}},
+            {"bridges": {"type": "snowflake", "source": "builtin"}}
+        ]
+    },
+    "hk": {
+        "settings": [
+            {"bridges": {"type": "obfs4",     "source": "bridgedb"}},
+            {"bridges": {"type": "snowflake", "source": "builtin"}}
+        ]
+    }
+}

@@ -1,0 +1,7 @@
+{
+	"settings": [
+		{"bridges": {"type": "obfs4", "source": "builtin"}},
+		{"bridges": {"type": "obfs4", "source": "bridgedb"}},
+		{"bridges": {"type": "snowflake", "source": "builtin"}}
+	]
+}

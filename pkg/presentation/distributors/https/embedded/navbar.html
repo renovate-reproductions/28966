@@ -1,0 +1,48 @@
+<div class="container-fluid bg-primary">
+    <nav class="navbar no-background navbar-expand-lg navbar-dark bg-primary p-4">
+        <a class="navbar-brand" href="https://torproject.org/">
+        <img alt="{{ translated "The Tor Project" }}" src="{{ "/static/images/tor-logo@2x.png"|asseturl }}" >
+        <span class="sr-only">Tor Logo</span>
+        </a>
+
+
+        <h4 class="pl-2 pr-2"><a href="https://www.torproject.org/donate/" title="{{ translated "Donate" }}"><span class="badge badge-warning p-2">{{ translated "Donate Now" }}</span></a></h4>
+
+        <label for="nav-toggle">
+            <a class="btn btn-lg btn-primary navbar-toggler text-white p-3" data-toggle="collapse"
+               data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+               aria-expanded="false" aria-label="Toggle navigation">
+                {{ translated "Menu" }} <span class="navbar-toggler-icon ml-1"></span>
+            </a>
+        </label>
+        <input type="checkbox" id="nav-toggle"/>
+        <div class="collapse navbar-collapse hamburger-menu" id="navbarSupportedContent">
+            <div class="mx-auto">
+                <ul class="navbar-nav">
+
+                    {{define "NavBarItem"}}
+                    <li>
+                        <a class="nav-link" href="{{ .Input.link }}">
+                            {{ .Input.title }}
+                        </a>
+                    </li>
+                    {{end}}
+                    {{ template "NavBarItem" (constructMapContext "title" (translated "About") "link"
+                    "https://www.torproject.org/about/history/") }}
+                    {{ template "NavBarItem" (constructMapContext "title" (translated "Support") "link"
+                    "https://support.torproject.org/") }}
+                    {{ template "NavBarItem" (constructMapContext "title" (translated "Community") "link"
+                    "https://community.torproject.org/") }}
+                    {{ template "NavBarItem" (constructMapContext "title" (translated "Blog") "link"
+                    "https://blog.torproject.org") }}
+                    {{ template "NavBarItem" (constructMapContext "title" (translated "Donate") "link"
+                    "https://donate.torproject.org") }}
+                </ul>
+            </div>
+            <div class="pull-right">
+                <a class="btn btn-outline-light pull-right" href="https://www.torproject.org/download/">
+                    {{ translated "Download Tor Browser" }}<i class="ml-2 pt-1 fas fa-arrow-down-png"></i>
+                </a>
+            </div>
+    </nav>
+</div>

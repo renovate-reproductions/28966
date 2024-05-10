@@ -1,0 +1,8 @@
+published 2023-08-09 12:00:00
+flag-thresholds stable-uptime=1846820 stable-mtbf=2532707 fast-speed=102000 guard-wfu=98.000% guard-tk=691200 guard-bw-inc-exits=5343000 guard-bw-exc-exits=5353000 enough-mtbf=1 ignoring-advertised-bws=0
+fingerprint BA44A889E64B93FAA2B114E02C2A279A8555C533
+{{ range . }}r {{.Nick}} {{.B64Fingerprint}} LLLL 2023-08-09 12:00:00 {{.Address}} {{.OrPort}} 0
+s Running {{.Flags}}
+w Bandwidth=6880
+p reject 1-65535
+{{ end -}}

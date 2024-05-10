@@ -1,0 +1,30 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ .LocalizerPrimaryLanguage }}" {{ if eq .LocalizerTextDirection "rtl" }} dir="rtl" {{ end }}>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ translated "Defend yourself against tracking and surveillance. Circumvent censorship." }} | {{ .Input.Title }}">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@torproject" />
+  <meta name="twitter:creator" content="@torproject" />
+  <meta name="twitter:image" content="https://www.torproject.org/static/images/tor-project-logo-onions.png"/>
+  <meta property="og:url" content="https://torproject.org" />
+  <meta property="og:title" content="{{ translated "The Tor Project | Privacy & Freedom Online" }}" />
+  <meta property="og:description" content="{{ translated "Defend yourself against tracking and surveillance. Circumvent censorship." }}" />
+  <meta property="og:image" content="https://www.torproject.org/static/images/tor-project-logo-onions.png" />
+  <link rel="stylesheet" href="{{ "/static/css/bootstrap.css"|asseturl }}">
+  <link rel="stylesheet" href="{{ "/static/fonts/fontawesome/css/all.min.css"|asseturl }}">
+  <link rel="stylesheet" href="{{ "/static/fonts/fontawesome/css/v4-shims.min.css"|asseturl }}">
+  {{ if eq .LocalizerTextDirection "rtl" }}
+    <link rel="stylesheet" href="{{ "/static/css/rtl.css" | asseturl }}">
+  {{ end }}
+  <!-- Standard favicon -->
+  <link rel="icon" type="image/x-icon" href="{{ "static/images/favicon.ico" | asseturl }}">
+  <!-- Recommended favicon format -->
+  <link rel="icon" type="image/png" href="{{ "static/images/favicon.png" | asseturl }}">
+  <title>{{ translated "Defend yourself against tracking and surveillance. Circumvent censorship." }} | {{ .Input.Title }}</title>
+</head>
+<body class="no-gutters">
+  <header class="bg-primary">
+    {{ template "navbar.html" }}
+  </header>

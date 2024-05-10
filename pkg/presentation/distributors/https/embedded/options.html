@@ -1,0 +1,47 @@
+{{ setMapContext "Title" "Options"}}
+{{ template "meta.html" .}}
+<div class="page">
+    <div class="container-fluid bg-primary">
+        <div class="row flex-xl-nowrap">
+            <div class="container bg-primary pt-1 pt-sm-0">
+                <div class="row">
+                    <div class="col-12 content-center pt-5">
+                        <div class="row">
+                            <h6 class="mx-auto text-white">{{ translated "Bridges" }}</h6>
+                        </div>
+                        <div class="row pb-5">
+                            <h2 class="mx-auto display-3 text-center text-white">{{ translated "Get Bridges for Tor" }}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="bridgedb-pathbar">
+        <a href="{{ "/" | url }}">BridgeDB</a><span id="bridgedb-pathbar-sep-container"><span id="bridgedb-pathbar-sep"></span>{{ translated "Options" }}</span>
+    </div>
+
+
+    <div class="container {{/* locale.order locale.direction */}}">
+        <div class="row flex-xl-nowrap {{/* locale.order locale.direction */}} ">
+            <main role="main" class="container mx-auto col-12 {{/* locale.order locale.direction */}} ">
+                <section>
+                    <div class="container pt-5 justify-content-center">
+                        {{ template "options-inner.html" }}
+                    </div>
+                </section>
+                <hr class="margin-4r-0 my-5">
+                <h5 id="bridgedb-support-header" class="text-muted">{{ translated "Support" }}</h5>
+                <div class="container hero  ">
+                    <div id="bridgedb-support-body" class="pt-3">
+                        {{ template "support.html" .}}
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+{{ template "footer.html" }}
+</body>
+</html>

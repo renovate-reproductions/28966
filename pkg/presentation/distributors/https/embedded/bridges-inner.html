@@ -1,0 +1,38 @@
+<script src="/static/js/bridges.js"></script>
+
+
+<div id="container-bridges">
+    <!-- this element exists so bridges.js runs. it checks for a `container-bridges` element but never uses it -->
+</div>
+<div class="container w-75">
+    <h1>Here are your bridge lines:</h1>
+    <div id="bridgelines" class="p-4 mb-3">
+        {{range .Input.BridgeLines}}
+        {{.}} <br/>
+        {{end}}
+
+    </div>
+    <button class="btn btn-primary disabled" id="bridgedb-selectbtn" aria-disabled="true"><span
+            class="fa fa-copy pr-3"></span>Copy All
+    </button>
+
+    <p id="qrcode-para">
+        <img title="QRCode for your bridge lines from BridgeDB"
+             src="data:image/png;base64,{{.Input.QRCode}}"
+             alt=""/>
+    </p>
+
+    <div class="mt-4">
+
+        <h3>How to start using your bridges</h3>
+        <p>First, you need to <a href="https://www.torproject.org/projects/torbrowser.html">download
+            Tor Browser</a>. Our Tor Browser User Manual explains how you can add your bridges to
+            Tor Browser. If you are using Windows, Linux, or OS X, <a
+                    href="https://tb-manual.torproject.org/bridges/#entering-bridge-addresses">click
+                here</a> to learn more. If you are using Android, <a
+                    href="https://tb-manual.torproject.org/mobile-tor/#circumvention">click here</a>.
+        </p>
+
+    </div>
+
+</div>

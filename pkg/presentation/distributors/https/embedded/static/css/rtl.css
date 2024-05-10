@@ -1,0 +1,9 @@
+span, p, h2, h3, h4, h5, li.nav-item {
+    text-align: right;
+    direction: rtl;
+}
+
+span {
+    float: right;
+}
+

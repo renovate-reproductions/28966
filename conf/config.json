@@ -1,0 +1,202 @@
+{
+    "backend": {
+        "extrainfo_file": "descriptors/cached-extrainfo",
+        "networkstatus_file": "descriptors/networkstatus-bridges",
+        "descriptors_file": "descriptors/bridge-descriptors",
+        "blocklist_file": "",
+        "allowlist_file": "",
+        "bridgestrap_endpoint": "http://127.0.0.1:5001/bridge-state",
+        "bridgestrap_token": "BridgestrapApiTokenPlaceholder",
+        "onbasca_endpoint": "http://127.0.0.1:5002/bridge-state",
+        "onbasca_token": "OnbascaApiTokenPlaceholder",
+        "bandwidth_ratio_threshold": 0.75,
+        "api_endpoint_resources": "/resources",
+        "api_endpoint_resource_stream": "/resource-stream",
+        "api_endpoint_targets": "/targets",
+        "web_endpoint_status": "/status",
+        "web_endpoint_metrics": "/rdsys-backend-metrics",
+        "storage_dir": "storage",
+        "assignments_file": "assignments.log",
+        "resources": {
+            "vanilla": {
+                "unpartitioned": false,
+                "stored": false,
+                "distributors": [
+                    "https",
+                    "moat"
+                ]
+            },
+            "obfs2": {},
+            "obfs3": {},
+            "obfs4": {},
+            "scramblesuit": {},
+            "tblink": {
+                "unpartitioned": true,
+                "stored": true
+            }
+        },
+        "api_tokens": {
+            "https": "HttpsApiTokenPlaceholder",
+            "stub": "StubApiTokenPlaceholder",
+            "gettor": "GettorApiTokenPlaceholder",
+            "moat": "MoatApiTokenPlaceholder"
+        },
+        "web_api": {
+            "api_address": "127.0.0.1:7100",
+            "cert_file": "",
+            "key_file": ""
+        },
+        "distribution_proportions": {
+            "https": 1,
+            "settings": 5
+        }
+    },
+    "distributors": {
+        "https": {
+            "resources": [
+                "obfs4",
+                "vanilla"
+            ],
+            "web_api": {
+                "api_address": "127.0.0.1:7200",
+                "cert_file": "",
+                "key_file": ""
+            },
+            "time_distribution": {
+                "num_bridges_per_request": 2,
+                "rotation_period_hours": 24,
+                "num_periods": 2,
+		"storage_dir": "storage/https"
+            }
+        },
+	"email": {
+            "resources": [
+                "obfs4",
+                "vanilla"
+            ],
+            "num_bridges_per_request": 2,
+            "rotation_period_hours": 24,
+	    "allowed_domains": ["riseup.net", "gmail.com"],
+            "email": {
+                "address": "bridges@example.com",
+                "smtp_server": "smt.example.com:25",
+                "smtp_username": "bridges",
+                "smtp_password": "pass",
+                "imap_server": "imaps://imap.example.com:993",
+                "imap_username": "bridges",
+                "imap_password": "pass"
+            },
+            "metrics_address": "127.0.0.1:8000"
+	},
+        "stub": {
+            "resources": [
+                "obfs4"
+            ],
+            "web_api": {
+                "api_address": "127.0.0.1:7400",
+                "cert_file": "",
+                "key_file": ""
+            }
+        },
+        "gettor": {
+            "resources": [
+                "tblink"
+            ],
+            "metrics_address": "127.0.0.1:7700",
+            "email": {
+                "address": "gettor@example.com",
+                "smtp_server": "smt.example.com:25",
+                "smtp_username": "gettor",
+                "smtp_password": "pass",
+                "imap_server": "imaps://imap.example.com:993",
+                "imap_username": "gettor",
+                "imap_password": "pass"
+            }
+        },
+        "moat": {
+            "resources": [
+                "obfs4",
+                "vanilla"
+            ],
+            "geoipdb": "/usr/share/tor/geoip",
+            "geoip6db": "/usr/share/tor/geoip6",
+            "circumvention_map": "conf/circumvention.json",
+            "circumvention_defaults": "conf/circumvention_defaults.json",
+            "time_distribution": {
+		    "num_bridges_per_request": 3,
+		    "rotation_period_hours": 24,
+		    "num_periods": 30,
+		    "storage_dir": "storage/moat"
+	    },
+            "builtin_bridges_url": "https://gitlab.torproject.org/tpo/applications/tor-browser-build/-/raw/main/projects/tor-expert-bundle/pt_config.json",
+            "shim_tokens": {
+		"shim": ""
+	    },
+            "dummy_bridges_file": "",
+	    "trust_proxy": false,
+            "web_api": {
+                "api_address": "127.0.0.1:7500",
+                "cert_file": "",
+                "key_file": ""
+            }
+        },
+        "telegram": {
+            "resource": "obfs4",
+            "num_bridges_per_request": 2,
+            "rotation_period_hours": 24,
+            "token": "",
+            "min_user_id": 0,
+            "updater_tokens": {
+                "name": "DynamicBridgeTokenPlaceholder"
+            },
+            "storage_dir": "/tmp/storage_telegram",
+            "api_address": "127.0.0.1:7600",
+            "lox_server_address": "http://localhost:8001"
+        },
+	"whatsapp": {
+		"session_file": "whatsapp.sqlite",
+            	"metrics_address": "127.0.0.1:7900"
+	}
+    },
+    "updaters": {
+        "gettor": {
+            "github": {
+                "auth_token": "",
+                "owner": "TheTorProject",
+                "repo": "gettorbrowser"
+            },
+            "gitlab": {
+                "auth_token": "",
+                "owner": "TheTorProject"
+            },
+            "s3": [
+                {
+                    "access_key": "",
+                    "access_secret": "",
+                    "signing_method": "archive_org_dangerous_workaround",
+                    "endpoint_url": "https://s3.us.archive.org/",
+                    "endpoint_region": "",
+                    "name": "archive_org",
+                    "bucket": "",
+                    "name_procedural_generation_seed": "SECRET"
+                },
+                {
+                    "access_key": "",
+                    "access_secret": "",
+                    "signing_method": "v4",
+                    "endpoint_url": "https://s3.fr-par.scw.cloud",
+                    "endpoint_region": "fr-par",
+                    "name": "scaleway",
+                    "bucket": "get-tor",
+                    "name_procedural_generation_seed": ""
+                }
+            ],
+            "gdrive": {
+                "app_credential_path": "",
+                "user_credential_path": "",
+                "parent_folder_id": ""
+            },
+            "metrics_address": "127.0.0.1:7800"
+        }
+    }
+}
